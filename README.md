@@ -9,5 +9,8 @@ tracking system.
 
 3) 3 Vicon (wrist, elbow and shoulder) message in ROS geometry_msgs::TransformStamped.
 
+4) Vicon bridge package.
+
 ## Usage
+roslaunch vicon_bridge vicon.launch
 roslaunch imu_vicon_arm_calibration demo.launch
