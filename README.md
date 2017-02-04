@@ -15,3 +15,7 @@ tracking system.
 roslaunch vicon_bridge vicon.launch
 
 roslaunch imu_vicon_arm_calibration demo.launch
+
+After imu-vicon calibration and rviz sucessfully load the frames, then run
+
+rosrun imu_vicon_arm_calibration basic_controls.py  to attach part models for each segments.
