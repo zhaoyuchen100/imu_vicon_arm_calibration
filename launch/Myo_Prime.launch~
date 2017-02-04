@@ -1,9 +1,0 @@
-<launch>
-  <arg name="myo_white_port" default="/dev/ttyACM0" />
-  <arg name="myo_black_port" default="/dev/ttyACM1" />
-	<node pkg="data_collection_gui" type="Myo_Prime" name="Myo_Prime" cwd="node"/>
-	<node pkg="ros_myo_black" type="myo-black-rawNode.py" name="ros_myo_black"
-		args="$(arg myo_white_port)"/>
-	<node pkg="ros_myo_white" type="myo-white-rawNode.py" name="ros_myo_white"
-		args="$(arg myo_black_port)"/>
-</launch>
