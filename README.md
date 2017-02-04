@@ -11,6 +11,10 @@ tracking system.
 
 4) Vicon bridge package.
 
+5) X-sense IMU package (Install from X-Sense_API repository).
+
+6) Myo package (install from Myo_API repository).
+
 ## Usage
 roslaunch vicon_bridge vicon.launch
 
