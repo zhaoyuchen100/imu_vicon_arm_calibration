@@ -1,0 +1,14 @@
+<launch>
+  <arg name="myo_white_port" default="/dev/ttyACM0" />
+  <arg name="myo_black_port" default="/dev/ttyACM1" />
+	
+	<node pkg="ros_myo_black" type="myo-black-rawNode.py" name="ros_myo_black"
+		args="$(arg myo_white_port)"/>
+	<node pkg="ros_myo_white" type="myo-white-rawNode.py" name="ros_myo_white"
+		args="$(arg myo_black_port)"/>
+	<node pkg="receive_xsens" type="receive_xsens" name="receive_xsens"/>
+	<node pkg="imu_vicon_arm_calibration" type="imu_vicon_arm_calibration_gui" name="imu_vicon_arm_calibration_gui"/>
+	<!--<node pkg="imu_calibration_gui" type="basic_controls.py" name="basic_controls" />-->
+	<node name="rviz" pkg="rviz" type="rviz"/>
+
+</launch>
