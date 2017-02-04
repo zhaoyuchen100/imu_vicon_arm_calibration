@@ -1,0 +1,510 @@
+<robot
+  name="fore_arm_v2.SLDASM">
+  <link name="world">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </link>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.395348085615453 0.222880076997622 1.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0200959999667201" />
+      <inertia
+        ixx="5.96181332346029E-07"
+        ixy="-5.36013036934362E-22"
+        ixz="-1.30951224641969E-23"
+        iyy="5.9618133234603E-07"
+        iyz="1.4248244860988E-24"
+        izz="8.5742933191339E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Virtual_base_link">
+    <inertial>
+      <origin
+        xyz="0 -5.55111512312578E-17 -0.00581470754645563"
+        rpy="0 0 0" />
+      <mass
+        value="0.0102816912385374" />
+      <inertia
+        ixx="2.08597539209591E-07"
+        ixy="-8.27180612553028E-24"
+        ixz="-4.73097146898413E-23"
+        iyy="2.09360967542063E-07"
+        iyz="4.68463955556678E-22"
+        izz="1.8203868013508E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Virtual_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Virtual_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="world-base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  <joint
+    name="Fixed_joint"
+    type="fixed">
+    <origin
+      xyz="-0.395348085615453 0.222880076997622 1.01"
+      rpy="0 0 -1.73472347597681E-15" />
+    <parent
+      link="base_link" />
+    <child
+      link="Virtual_base_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Shoulder_Flex_L">
+    <inertial>
+      <origin
+        xyz="-1.33226762955019E-15 -5.55111512312578E-17 -0.00224602026411846"
+        rpy="0 0 0" />
+      <mass
+        value="0.00211725796719372" />
+      <inertia
+        ixx="1.6302231052161E-08"
+        ixy="2.54358038360056E-23"
+        ixz="-1.25513498201696E-22"
+        iyy="1.63022310521609E-08"
+        iyz="8.71303301494441E-23"
+        izz="2.64847538132209E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_Flex_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_Flex_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Flex_J"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.012466"
+      rpy="0 0 0" />
+    <parent
+      link="Virtual_base_link" />
+    <child
+      link="Shoulder_Flex_L" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Shoulder_Ad_Ab_L">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0 -0.00123481228507227"
+        rpy="0 0 0" />
+      <mass
+        value="0.00140355041419525" />
+      <inertia
+        ixx="1.23051812487725E-08"
+        ixy="2.68833699079734E-24"
+        ixz="1.02315396039032E-23"
+        iyy="1.15417529163008E-08"
+        iyz="2.73236095295839E-25"
+        izz="2.22321452969216E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_Ad_Ab_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_Ad_Ab_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_Ad_Ab_J"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.004755"
+      rpy="0 0 0" />
+    <parent
+      link="Shoulder_Flex_L" />
+    <child
+      link="Shoulder_Ad_Ab_L" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Shoulder_In_Ex_L">
+    <inertial>
+      <origin
+        xyz="2.91784937322959E-08 3.6608554243589E-09 -0.161684867394436"
+        rpy="0 0 0" />
+      <mass
+        value="12.9209559956184" />
+      <inertia
+        ixx="0.0664953983219132"
+        ixy="1.89426977922902E-09"
+        ixz="-3.99482821668115E-08"
+        iyy="0.0664957450773238"
+        iyz="-6.95703028358704E-09"
+        izz="0.0133483339534259" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_In_Ex_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Shoulder_In_Ex_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder_In_Ex_J"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0072209"
+      rpy="0 0 0" />
+    <parent
+      link="Shoulder_Ad_Ab_L" />
+    <child
+      link="Shoulder_In_Ex_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Lower_arm">
+    <inertial>
+      <origin
+        xyz="-0.125855980384772 2.72507344190043E-08 1.1537536900752E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.69333298815247" />
+      <inertia
+        ixx="0.000695273764539841"
+        ixy="-2.41825379935419E-08"
+        ixz="7.3592401589505E-11"
+        iyy="0.00902492497143308"
+        iyz="8.63705226844335E-13"
+        izz="0.00902492962691117" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Lower_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Lower_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Elbow_Flex_J"
+    type="revolute">
+    <origin
+      xyz="0 2.0664E-05 -0.31315"
+      rpy="0 0 0" />
+    <parent
+      link="Shoulder_In_Ex_L" />
+    <child
+      link="Lower_arm" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Wrist_Flex_L">
+    <inertial>
+      <origin
+        xyz="-0.00266199405030698 -4.07457401152556E-12 -1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.00246217938416026" />
+      <inertia
+        ixx="3.54745219692705E-08"
+        ixy="-1.00130730137427E-18"
+        ixz="-1.36295146221641E-22"
+        iyy="2.07500360514663E-08"
+        iyz="-2.41869652411459E-23"
+        izz="2.19148587311202E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_Flex_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_Flex_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wrist_Flex_J"
+    type="revolute">
+    <origin
+      xyz="-0.25152 0 1.1537E-05"
+      rpy="0 0 0" />
+    <parent
+      link="Lower_arm" />
+    <child
+      link="Wrist_Flex_L" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Wrist_dev_L">
+    <inertial>
+      <origin
+        xyz="-0.0015813 2.0653E-11 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0010586" />
+      <inertia
+        ixx="1.3242E-08"
+        ixy="-3.9153E-18"
+        ixz="-5.14E-24"
+        iyy="8.2042E-09"
+        iyz="-3.6813E-24"
+        izz="6.2759E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_dev_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.61961 0.58824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_dev_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wrist_dev_J"
+    type="revolute">
+    <origin
+      xyz="-0.0047119 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Wrist_Flex_L" />
+    <child
+      link="Wrist_dev_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Wrist_pro_sup_L">
+    <inertial>
+      <origin
+        xyz="-0.0821553605643559 -0.00511525745534885 0.0296221351767871"
+        rpy="0 0 0" />
+      <mass
+        value="3.82775120422259" />
+      <inertia
+        ixx="0.003973810586322"
+        ixy="-0.000275452024160922"
+        ixz="-0.00211867109946761"
+        iyy="0.00961947800359318"
+        iyz="-0.000183600166819501"
+        izz="0.00753850054286151" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_pro_sup_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fore_arm_v2.SLDASM/meshes/Wrist_pro_sup_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wrist_pro_sup_J"
+    type="revolute">
+    <origin
+      xyz="-0.002509 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Wrist_dev_L" />
+    <child
+      link="Wrist_pro_sup_L" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5"
+      upper="1.5"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

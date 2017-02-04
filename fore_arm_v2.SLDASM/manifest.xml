@@ -1,0 +1,6 @@
+<package>
+  <description brief="fore_arm_v2.SLDASM">fore_arm_v2.SLDASM</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>
